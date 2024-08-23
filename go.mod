@@ -3,6 +3,7 @@ module github.com/abava00/KakinoTane
 go 1.22.2
 
 require (
+	github.com/joho/godotenv v1.5.1
 	github.com/pkoukk/tiktoken-go v0.1.7
 	github.com/robtec/newsapi v0.0.0-20180922142248-e986ded8a669
 	github.com/sashabaranov/go-openai v1.27.0
