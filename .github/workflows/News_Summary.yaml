@@ -2,7 +2,7 @@ name: Cron LLM Post to Misskey
 
 on:
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '0 3 * * *'
 
 jobs:
   PostComment:
