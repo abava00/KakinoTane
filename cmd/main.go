@@ -6,9 +6,11 @@ import (
 	"github.com/abava00/KakinoTane/internal/news"
 	"github.com/abava00/KakinoTane/internal/ai"
 	"github.com/abava00/KakinoTane/internal/misskey"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+  _ = godotenv.Load(".env")
 	// news.Test()
 	// return
 	client, _ := misskey.NewMisskeyClient()
