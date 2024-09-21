@@ -2,7 +2,7 @@ name: Cron LLM Post to Misskey
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * 1,3,5'
 
 jobs:
   PostComment:
@@ -15,7 +15,7 @@ jobs:
         run: |
           curl -sLJO -H 'Accept: application/octet-stream' \
           "https://${{ secrets.GITHUB_TOKEN }}@api.github.com/repos/abava00/KakinoTane/releases/assets/$( \
-          curl -sL "https://${{ secrets.GITHUB_TOKEN }}@api.github.com/repos/abava00/KakinoTane/releases/tags/v0.0.2" \
+          curl -sL "https://${{ secrets.GITHUB_TOKEN }}@api.github.com/repos/abava00/KakinoTane/releases/tags/v0.0.3" \
           | jq '.assets[] | select(.name | contains("Linux_x86")) | .id')"
           tar -zxvf KakinoTane_Linux_x86_64.tar.gz
 
