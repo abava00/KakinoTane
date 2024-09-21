@@ -58,15 +58,14 @@ func GetNews() ([]api.Article, error){
 	}
 
 	// Create options for Ireland and Business
-	opts := api.Options{Country: "jp", Category: "technology", PageSize: 50}
+	opts := api.Options{Country: "us", Category: "technology", PageSize: 50}
 
 	// Get Top Headlines with options from above
 	topHeadlines, err := client.TopHeadlines(opts)
 	return topHeadlines.Articles, err
 }
 
-func GetRandomExtractNews(articles []api.Article) ([]api.Article, error){
-  extract_news := 10
+func GetRandomExtractNews(articles []api.Article, extract_news int) ([]api.Article, error){
 	rand.Shuffle(len(articles), func(i, j int){
 		articles[i], articles[j] = articles[j], articles[i]
 	})

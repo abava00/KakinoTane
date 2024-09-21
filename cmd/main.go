@@ -19,9 +19,13 @@ func main() {
 下記に News API から取得された最新のニュース記事の見出しと要約の一覧を示します。
 以下の Description を読みつつ、2つ以上の記事の内容を上手く絡めることによって、騙されるまではいかないが実際にありそうな冗談交じりの偽記事を作成してください。ただし、記事中の固有名詞はすべて名前の似た架空のものに変換して、絶対に存在する企業名、大学名、個人名等をそのまま使わないようにしてください。（見出しにも固有名詞をそのまま使うことは許されません。）
 嘘記事には最初に\"タイトル: {TITLE} - {SITE}\"として見出しと架空の Web サイト名を設定し、以降に本文を記載するようにしてください。そして、最後に架空の記事執筆者と所属を記載してください。
+ただし要約部分の文字数は300文字程度に制限してください。
 `
 	articles, _ := news.GetNews()
-	articles, _ = news.GetRandomExtractNews(articles)
+	extract_news := 10
+  if (extract_news <= len(articles)){
+    articles, _ = news.GetRandomExtractNews(articles, extract_news)
+  }
 	for i, v := range articles {
 		pre_text = pre_text + fmt.Sprintf("%d: %s\n", i, news.StringArticle(v))
 	}
